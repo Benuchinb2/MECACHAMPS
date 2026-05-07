@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meca Champs 2 | Torneo Oficial</title>
+    <style>
+        /* Tipografías y Variables */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600&display=swap');
+        
+        :root {
+            --bg-dark: #0B0F19;
+            --panel-bg: #1A2235;
+            --meca-blue: #0070F3;
+            --meca-neon: #00F0FF;
+            --text-main: #FFFFFF;
+            --text-muted: #C0C0C0;
+            --danger: #FF3366;
+            --border-glow: rgba(0, 240, 255, 0.3);
+        }
+
+        /* Reseteo y Estilos Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(0, 112, 243, 0.08), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(0, 240, 255, 0.05), transparent 25%);
+            min-height: 100vh;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* Navegación */
+        nav {
+            background: rgba(26, 34, 53, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--meca-blue);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+            background-image: linear-gradient(90deg, var(--meca-blue), var(--meca-neon));
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+        }
+
+        /* Contenedor Principal */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 4rem 1rem;
+            background: linear-gradient(180deg, rgba(0, 112, 243, 0.1) 0%, transparent 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(0, 112, 243, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+
+        /* Tabla de Posiciones */
+        .panel {
+            background: var(--panel-bg);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 112, 243, 0.2);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            overflow-x: auto;
+        }
+
+        .panel-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(0, 112, 243, 0.2);
+        }
+
+        .panel-header h2 {
+            color: var(--meca-neon);
+            font-size: 1.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            min-width: 800px; /* Para asegurar el scroll en móviles */
+        }
+
+        th {
+            padding: 1rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.95rem;
+        }
+
+        tr:hover td {
+            background: rgba(0, 112, 243, 0.1);
+        }
+
+        /* Reglas visuales de la tabla */
+        .campeon td {
+            color: var(--meca-neon);
+            font-weight: 600;
+            background: rgba(0, 240, 255, 0.05);
+        }
+
+        .descenso td {
+            color: var(--danger);
+        }
+
+        .pts-col {
+            font-weight: bold;
+            color: var(--meca-neon);
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            nav { flex-direction: column; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">MECA CHAMPS 2</div>
+        <div style="color: var(--text-muted); font-size: 0.9rem;">Primera División</div>
+    </nav>
+
+    <div class="container">
+        <div class="hero">
+            <h1>LA LIGA DEL FUTURO</h1>
+            <p>Resultados, estadísticas y posiciones en tiempo real.</p>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">
+                <h2>Tabla de Posiciones</h2>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>POS</th>
+                        <th>EQUIPO</th>
+                        <th>PJ</th>
+                        <th>PG</th>
+                        <th>PE</th>
+                        <th>PP</th>
+                        <th>GF</th>
+                        <th>GC</th>
+                        <th>DIF</th>
+                        <th>PTS</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-cuerpo">
+                    </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // ==========================================
+        // ZONA DE EDICIÓN DE DATOS
+        // Modifica solo los números de esta lista para actualizar la web.
+        // ==========================================
+        const equipos = [
+            { nombre: "Cyber FC", pj: 5, pg: 4, pe: 1, pp: 0, gf: 12, gc: 3 },
+            { nombre: "Neon United", pj: 5, pg: 3, pe: 1, pp: 1, gf: 8, gc: 5 },
+            { nombre: "Metal Dynamo", pj: 5, pg: 2, pe: 2, pp: 1, gf: 5, gc: 4 },
+            { nombre: "Holo City", pj: 5, pg: 2, pe: 1, pp: 2, gf: 6, gc: 6 },
+            { nombre: "Quantum AC", pj: 5, pg: 1, pe: 3, pp: 1, gf: 4, gc: 4 },
+            { nombre: "Tech Rovers", pj: 5, pg: 1, pe: 2, pp: 2, gf: 3, gc: 7 },
+            { binary: "Binary Boys", nombre: "Binary Boys", pj: 5, pg: 0, pe: 3, pp: 2, gf: 2, gc: 5 },
+            { nombre: "Glitch Sporting", pj: 5, pg: 0, pe: 1, pp: 4, gf: 1, gc: 7 }
+        ];
+
+        // ==========================================
+        // LÓGICA DEL SISTEMA (No hace falta tocar esto)
+        // ==========================================
+        
+        // 1. Calcular puntos y diferencia de gol automáticamente
+        equipos.forEach(equipo => {
+            equipo.pts = (equipo.pg * 3) + (equipo.pe * 1);
+            equipo.dif = equipo.gf - equipo.gc;
+        });
+
+        // 2. Ordenar por puntos (y por diferencia de gol si hay empate)
+        equipos.sort((a, b) => {
+            if (b.pts !== a.pts) return b.pts - a.pts;
+            return b.dif - a.dif;
+        });
+
+        // 3. Dibujar la tabla en el HTML
+        const tbody = document.getElementById('tabla-cuerpo');
+        
+        equipos.forEach((equipo, index) => {
+            const tr = document.createElement('tr');
+            
+            // Reglas de color: primero (campeón), dos últimos (descenso)
+            if (index === 0) tr.classList.add('campeon');
+            if (index >= equipos.length - 2) tr.classList.add('descenso');
+
+            tr.innerHTML = `
+                <td>${index + 1}</td>
+                <td style="font-family: 'Orbitron', sans-serif;">${equipo.nombre}</td>
+                <td>${equipo.pj}</td>
+                <td>${equipo.pg}</td>
+                <td>${equipo.pe}</td>
+                <td>${equipo.pp}</td>
+                <td>${equipo.gf}</td>
+                <td>${equipo.gc}</td>
+                <td>${equipo.dif > 0 ? '+' + equipo.dif : equipo.dif}</td>
+                <td class="pts-col">${equipo.pts}</td>
+            `;
+            tbody.appendChild(tr);
+        });
+    </script>
+</body>
+</html>
